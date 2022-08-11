@@ -46,7 +46,7 @@ namespace Databasetest.Controllers
 
             return Ok(output);
         }
-
+        // blablaba
         [HttpGet("GetCerealtypeByparameter")]
         public IQueryable<Cereal>? GetCerealByparameter(string? name, String? Mfr, String? type, String? calories, String? protein, string? fat, string? sodium, string? fiber, string? carbo, string? sugar, string? potass, string? vitamin, string? shelf, string? weight, string? cups, string? rating)
         {   
