@@ -75,7 +75,7 @@ namespace Databasetest.Controllers
         }
 
         [HttpPost("PostRequestByparameter")]
-        public Cereal? CreateCereal([Bind("Name,Mfr,Type,Calories,Protein,Fat,Sodium,Fiber,Carbo,Sugars,Potass,Vitamins,Shelf,Weight,Cups,Rating")] Cereal cereal)
+        public ActionResult<Cereal> CreateCereal([Bind("Name,Mfr,Type,Calories,Protein,Fat,Sodium,Fiber,Carbo,Sugars,Potass,Vitamins,Shelf,Weight,Cups,Rating")] Cereal cereal)
         {
             if (cereal != null)
             {
@@ -84,11 +84,11 @@ namespace Databasetest.Controllers
                 return cereal;
             }
 
-            return null;
+            return NotFound();
         } 
 
         [HttpPost("UpdateRequestByparameter")] 
-         public Cereal? UpdateCereal([Bind("Id,Name,Mfr,Type,Calories,Protein,Fat,Sodium,Fiber,Carbo,Sugars,Potass,Vitamins,Shelf,Weight,Cups,Rating")] Cereal cereal)
+         public ActionResult<Cereal> UpdateCereal([Bind("Id,Name,Mfr,Type,Calories,Protein,Fat,Sodium,Fiber,Carbo,Sugars,Potass,Vitamins,Shelf,Weight,Cups,Rating")] Cereal cereal)
         {  
            var output = (_context.Cereals?.Where(e => e.Id == cereal.Id));
 
@@ -99,7 +99,7 @@ namespace Databasetest.Controllers
                 return cereal;
             }
 
-            return null;
+            return NotFound();
         }
 
 
