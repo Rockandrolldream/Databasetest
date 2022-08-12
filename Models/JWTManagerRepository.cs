@@ -20,9 +20,9 @@ namespace Databasetest.Models
             this.iconfiguration = iconfiguration;
         }
 
-        public Tokens Authenticate(Users users)
+        public Tokens Authenticate(User users)
         {
-            if (!UsersRecords.Any(x => x.Key == users.Name && x.Value == users.Password))
+            if (!UsersRecords.Any(x => x.Key == users.Username && x.Value == users.Password))
             {
                 return null;
             }
@@ -34,7 +34,7 @@ namespace Databasetest.Models
             {
                 Subject = new ClaimsIdentity(new Claim[]
               {
-             new Claim(ClaimTypes.Name, users.Name)
+             new Claim(ClaimTypes.Name, users.Username)
               }),
                 Expires = DateTime.UtcNow.AddMinutes(10),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)

@@ -1,6 +1,9 @@
-﻿namespace Databasetest.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace Databasetest.Models
 {
-    public class Tokens
+    public partial class Tokens
     {
         public string Token { get; set; }
         public string RefreshToken { get; set; }

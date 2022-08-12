@@ -17,6 +17,8 @@ namespace Databasetest.Models
         }
 
         public virtual DbSet<Cereal> Cereals { get; set; } = null!;
+        public virtual DbSet<Token> Tokens { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -112,6 +114,34 @@ namespace Databasetest.Models
                     .HasMaxLength(5)
                     .IsUnicode(false)
                     .HasColumnName("weight");
+            });
+
+            modelBuilder.Entity<Token>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.RefreshToken)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.Token1).HasColumnName("Token");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("User");
+
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.User1)
+                    .IsUnicode(false)
+                    .HasColumnName("User");
             });
 
             OnModelCreatingPartial(modelBuilder);
