@@ -2,35 +2,37 @@ using Databasetest.Models;
 using FluentAssertions.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-IServiceCollection services = new ServiceCollection();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-services.AddAuthentication(x =>
+builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; 
     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(o =>
 {
-    var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
-    o.SaveToken = true;
     o.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = false,
-        ValidateAudience = false,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        //ValidIssuer = Configuration["JWT:Issuer"],
-        //ValidAudience = Configuration["JWT:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Key)
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey
+        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true
     };
 }
 );
-
+builder.Services.AddAuthentication();
+builder.Services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
 builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BallingdatabaseContext>(options => options.UseSqlServer(builder.Configuration!.GetConnectionString("Constr")!));
