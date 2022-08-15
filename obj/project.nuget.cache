@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vKN6dh3TrU5G6vwuzPqvor5GfZmCNTHhmngkP/7Qr8Wp2QBfiKkcIXBmBmB2aXvJkYZ5Vsz7rjZmvQpsAcz37g==",
+  "dgSpecHash": "XA03QBOCNghraD0ic3/mPGCCkk8WkgmrfPJdFk4jhxFX6cmXFlliVYEvOHlvfk5bbMsfY4Jc/dXfVPgK7HyRXA==",
   "success": true,
   "projectFilePath": "C:\\Users\\KOM\\source\\repos\\Apiopgave\\Databasetest\\Databasetest.csproj",
   "expectedPackageFiles": [
@@ -73,6 +73,7 @@
     "C:\\Users\\KOM\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.templating\\6.0.7\\microsoft.visualstudio.web.codegeneration.templating.6.0.7.nupkg.sha512",
     "C:\\Users\\KOM\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\6.0.7\\microsoft.visualstudio.web.codegeneration.utils.6.0.7.nupkg.sha512",
     "C:\\Users\\KOM\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\6.0.7\\microsoft.visualstudio.web.codegenerators.mvc.6.0.7.nupkg.sha512",
+    "C:\\Users\\KOM\\.nuget\\packages\\microsoft.web.services3\\3.0.0\\microsoft.web.services3.3.0.0.nupkg.sha512",
     "C:\\Users\\KOM\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\KOM\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\KOM\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
@@ -195,5 +196,16 @@
     "C:\\Users\\KOM\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\KOM\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Web.Services3 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Web.Services3",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

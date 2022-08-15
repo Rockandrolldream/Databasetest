@@ -1,5 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using Microsoft.Web.Services3.Security.Utility;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -11,6 +13,7 @@ namespace Databasetest.Models
     {
         { "Satinder Singh","test10"},
         { "Amit Sarna","test10"},
+        { "string","string"},
         { "Davin Jon","test10"},
     };
 
@@ -34,11 +37,15 @@ namespace Databasetest.Models
             {
                 Subject = new ClaimsIdentity(new Claim[]
               {
-             new Claim(ClaimTypes.Name, users.Username)
+                  new Claim(ClaimTypes.Name, users.Username)
               }),
                 Expires = DateTime.UtcNow.AddMinutes(10),
+                Issuer = iconfiguration["JWT:Issuer"], 
+                Audience = iconfiguration["JWT:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
+             
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return new Tokens { Token = tokenHandler.WriteToken(token) };
         }

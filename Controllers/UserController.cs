@@ -4,20 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Databasetest.Controllers
 {
+    
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class UserController : Controller
     {
         private readonly IJWTManagerRepository _jWTManager;
-        private readonly BallingdatabaseContext _context;
 
         public UserController(IJWTManagerRepository jWTManager, BallingdatabaseContext context)
         {
             this._jWTManager = jWTManager;
-            _context = context;
         }
 
-        [HttpGet("GetUsers")]
+        [HttpGet]
+        [Authorize]
+        [Route("Getusers")]
         public List<String> Get()
         {
             var users = new List<string>
@@ -26,12 +27,11 @@ namespace Databasetest.Controllers
             "Amit Sarna",
             "Davin Jon"
         };
-
-
             return users;
         }
-
-        [HttpPost("CreateToken")]
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("authenticate")]
         public IActionResult Authenticate(User usersdata)
         {
             var token = _jWTManager.Authenticate(usersdata);
@@ -40,7 +40,6 @@ namespace Databasetest.Controllers
             {
                 return Unauthorized();
             }
-            _context.Tokens.Add(token);
             return Ok(token);
         }
 

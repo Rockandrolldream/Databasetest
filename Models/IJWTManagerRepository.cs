@@ -2,6 +2,6 @@
 {
     public interface IJWTManagerRepository
     {
-        Token Authenticate(User users);
+        Tokens Authenticate(User users);
     }
 }

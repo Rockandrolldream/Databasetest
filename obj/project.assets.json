@@ -1689,6 +1689,15 @@
           }
         }
       },
+      "Microsoft.Web.Services3/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/Microsoft.Web.Services3.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.Web.Services3.dll": {}
+        }
+      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6088,6 +6097,18 @@
         "lib/net6.0/minimalApiChanges.json",
         "microsoft.visualstudio.web.codegenerators.mvc.6.0.7.nupkg.sha512",
         "microsoft.visualstudio.web.codegenerators.mvc.nuspec"
+      ]
+    },
+    "Microsoft.Web.Services3/3.0.0": {
+      "sha512": "f7TxDOPxdtxqgKma7PTUlpjeBVur9HFFvBR9UEhMU6qQiOOCG2RezmSdiMKuUlCpFB95AXoWB074ZpgCNbUupg==",
+      "type": "package",
+      "path": "microsoft.web.services3/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.Web.Services3.dll",
+        "microsoft.web.services3.3.0.0.nupkg.sha512",
+        "microsoft.web.services3.nuspec"
       ]
     },
     "Microsoft.Win32.Primitives/4.3.0": {
@@ -10746,6 +10767,7 @@
       "Microsoft.Extensions.Configuration >= 6.0.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.7",
       "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore >= 6.0.7",
+      "Microsoft.Web.Services3 >= 3.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "Swashbuckle.AspNetCore.Annotations >= 6.4.0",
       "System.IdentityModel.Tokens.Jwt >= 6.22.0"
@@ -10842,6 +10864,10 @@
             "target": "Package",
             "version": "[6.0.7, )"
           },
+          "Microsoft.Web.Services3": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
@@ -10877,5 +10903,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Web.Services3 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Web.Services3",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

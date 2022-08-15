@@ -20,6 +20,7 @@
           "Microsoft.Extensions.Configuration": "6.0.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.7",
           "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "6.0.7",
+          "Microsoft.Web.Services3": "3.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "Swashbuckle.AspNetCore.Annotations": "6.4.0",
           "System.IdentityModel.Tokens.Jwt": "6.22.0"
@@ -1277,6 +1278,14 @@
           "lib/net6.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {
             "assemblyVersion": "6.0.7.0",
             "fileVersion": "6.0.722.33005"
+          }
+        }
+      },
+      "Microsoft.Web.Services3/3.0.0": {
+        "runtime": {
+          "lib/net20/Microsoft.Web.Services3.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.5305.0"
           }
         }
       },
@@ -2902,6 +2911,13 @@
       "sha512": "sha512-JpEN3NIydfHQK46Sed38a3+pyq/6Uk64CXcA0WdILKslcbnRue1iD0I8YDvky/dOkieCZN/c83wmrJZsspNJbg==",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/6.0.7",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.6.0.7.nupkg.sha512"
+    },
+    "Microsoft.Web.Services3/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f7TxDOPxdtxqgKma7PTUlpjeBVur9HFFvBR9UEhMU6qQiOOCG2RezmSdiMKuUlCpFB95AXoWB074ZpgCNbUupg==",
+      "path": "microsoft.web.services3/3.0.0",
+      "hashPath": "microsoft.web.services3.3.0.0.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
