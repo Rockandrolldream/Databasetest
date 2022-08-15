@@ -274,3 +274,4 @@ C:\Users\KOM\source\repos\Apiopgave\Databasetest\bin\Debug\net6.0\FluentAssertio
 C:\Users\KOM\source\repos\Apiopgave\Databasetest\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\KOM\source\repos\Apiopgave\Databasetest\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\KOM\source\repos\Apiopgave\Databasetest\bin\Debug\net6.0\Microsoft.Web.Services3.dll
+C:\Users\KOM\source\repos\Apiopgave\Databasetest\bin\Debug\net6.0\Databasetest.xml

@@ -18,7 +18,6 @@ namespace Databasetest.Models
 
         public virtual DbSet<Cereal> Cereals { get; set; } = null!;
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -115,7 +114,7 @@ namespace Databasetest.Models
                     .HasColumnName("weight");
             });
 
-          
+           
 
             OnModelCreatingPartial(modelBuilder);
         }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
 
 
@@ -41,7 +42,29 @@ builder.Services.AddSwaggerGen(c => {
     c.IgnoreObsoleteProperties();
     c.CustomSchemaIds(type => type.FullName);
 
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo  
+       {  
+        Title = "Cereals ap", 
+        Version = "v1" ,
+        Description = "An API to Find Cereals",
+        TermsOfService = new Uri("https://example.com/terms"),
+        Contact = new OpenApiContact
+        {
+            Name = "Jacob Balling",
+            Email = "sa.jba@specialisterne.com",
+            Url = new Uri("https://www.dk.specialisterne.com/"),
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Cereals API LICX",
+            Url = new Uri("https://example.com/license"),
+        }
+    });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Databasetest</name>
+    </assembly>
+    <members>
+        <member name="M:Databasetest.Controllers.CerealsController.AllCereals">
+            <summary>
+            Gets the list of all Cereals.
+            </summary>
+            <returns>The list of Cereals.</returns>
+        </member>
+        <member name="M:Databasetest.Controllers.CerealsController.CerealsDetails(System.Nullable{System.Int32})">
+            <summary>
+            GetCereal by id.
+            </summary>
+            <returns>Search after specific Cereal</returns> 
+            <response code="200">Returns Cereal</response>
+            <response code="404">If the item is not found</response> 
+        </member>
+        <member name="M:Databasetest.Controllers.CerealsController.GetCerealByparameter(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            GetCereal by Parameters.
+            </summary>
+            <returns>returns number of cereals , taht was search after</returns> 
+        </member>
+        <member name="M:Databasetest.Controllers.CerealsController.CreateCereal(Databasetest.Models.Cereal)">
+            <summary>
+            Add Cereal to database.
+            </summary>
+            <returns>returns object if ok, else return error</returns> 
+            <response code="200">Returns Cereals, that has been posted</response>
+            <response code="404">If the input is empthy</response> 
+            <response code="401">If that has not been created a JWT token</response>
+        </member>
+        <member name="M:Databasetest.Controllers.CerealsController.UpdateCereal(Databasetest.Models.Cereal)">
+            <summary>
+            Update Cereal in database.
+            </summary>
+            <returns>returns object if ok, else return error</returns> 
+            <response code="200">Returns Cereals, that has been Updated</response>
+            <response code="404">If the input is empthy</response> 
+            <response code="401">If that has not been created a JWT token</response> 
+        </member>
+        <member name="M:Databasetest.Controllers.CerealsController.DeleteCereal(System.Int32)">
+            <summary>
+            Delete Cereal in database.
+            </summary>
+            <returns>returns object if Delete is completed, else return error</returns> 
+            <response code="200">Returns Cereals, that has been Delete</response>
+            <response code="404">If the input is empthy</response> 
+            <response code="401">If that has not been created a JWT token</response> 
+        </member>
+        <member name="M:Databasetest.Controllers.CerealsController.Authenticate(Databasetest.Models.User)">
+            <summary>
+            CreateToken in database.
+            </summary>
+            <returns>returns object if Delete is completed, else return error</returns>
+        </member>
+    </members>
+</doc>
