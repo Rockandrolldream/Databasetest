@@ -45,7 +45,7 @@ builder.Services.AddSwaggerGen(c => {
     c.SwaggerDoc("v1", new OpenApiInfo  
        {  
         Title = "Cereals ap", 
-        Version = "v1" ,
+        Version = "v1" , 
         Description = "An API to Find Cereals Products",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact

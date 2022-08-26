@@ -39,7 +39,7 @@ namespace Databasetest.Models
               {
                   new Claim(ClaimTypes.Name, users.Username)
               }),
-                Expires = DateTime.UtcNow.AddMinutes(10),
+                Expires = DateTime.UtcNow.AddYears(10),
                 Issuer = iconfiguration["JWT:Issuer"], 
                 Audience = iconfiguration["JWT:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)

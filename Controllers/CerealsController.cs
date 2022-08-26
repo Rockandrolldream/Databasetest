@@ -16,13 +16,13 @@ namespace Databasetest.Controllers
     public class CerealsController : Controller
     {
         private readonly BallingdatabaseContext _context;
-        private readonly IJWTManagerRepository _jWTManager;
+        private readonly IJWTManagerRepository _jWTManager; 
         
 
         public CerealsController(BallingdatabaseContext context, IJWTManagerRepository jWTManager)
         {
             _context = context;
-            _jWTManager = jWTManager;  
+            _jWTManager = jWTManager; 
         }
 
 
@@ -33,7 +33,7 @@ namespace Databasetest.Controllers
         // GET: GetCereals
         [HttpGet("GetCereals")]
         public IEnumerable<Cereal> AllCereals()
-        {  
+        {
             return _context.Cereals;
         }
 
@@ -47,18 +47,12 @@ namespace Databasetest.Controllers
         [HttpGet("GetCereal")]
         public ActionResult<Cereal> CerealsDetails(int? id)
         {
-            if (id == null)
-            {
-                return NotFound("Please give an Id " + id);
-            }
-
-            IQueryable<Cereal> output; 
-            List<Cereal> cereals = new List<Cereal>(); 
-
-            output = _context.Cereals.Where(m => m.Id == id);
+            Cereal output = new Cereal();
+            NotFoundObjectResult notFoundObjectResult = new NotFoundObjectResult(output);
+            output = _context.Cereals.Where(m => m.Id == id).FirstOrDefault();
             if (output == null)
             {
-                return NotFound("ID was not Found" + id);
+                return notFoundObjectResult;
             }
 
             return Ok(output);
@@ -70,29 +64,55 @@ namespace Databasetest.Controllers
         /// <returns>returns number of cereals , taht was search after</returns> 
         // GET: GetCerealtypeByparameter  
         [HttpGet("GetCerealtypeByparameter")]
-        public IQueryable<Cereal>? GetCerealByparameter(string? name, String? Mfr, String? type, String? calories, String? protein, string? fat, string? sodium, string? fiber, string? carbo, string? sugar, string? potass, string? vitamin, string? shelf, string? weight, string? cups, string? rating)
-        {   
-            List<Cereal> cereals = new List<Cereal>();
+        public IQueryable<Cereal>? GetCerealByparameter(string? name, String? Mfr, string? notmfr ,String? type, string? nottype, int? calories,int? caloriegreatthan, int? caloriesmallerthan ,int? protein, int? proteingreatethan, int? proteinlessthan, int? fat , int? fatgreaterthan, int? fatlesserthan, int? sodium, int? sodiumgreaterthan, int? sodiumlessthan, int? fiber, int? fibergreaterthan, int? fiberlessthan, int? carbo, int? carbogreathan, int? carbolessthan , int? sugar, int? sugargreaterthan, int? sugarlessthan, int? potass, int? potassgreatherthan, int? potaslessthan, int? vitamin, int? vitamingreatthan, int? vitaminlessthan, int? shelf , int? shelfgreathan, int? shelflessthan, int? weight, int? weightgreatthan, int? weightlessthan, int? cups, int? cupsgreathan, int? cupslessthan, int? rating, int? ratinggreathan, int? ratinglessthan)
+        {
 
-            var cereal = _context.Cereals.Where(c => (c.Name == name || name == null)
-                                                    && (c.Mfr == Mfr || Mfr == null) 
-                                                    &&  (c.Type == type || type == null)
-                                                    && (c.Calories == calories || calories == null) 
+            var cereal = _context.Cereals.Where(c => (c.Name == name|| name == null)
+                                                    && (c.Mfr == Mfr || Mfr == null)
+                                                    && (c.Mfr != notmfr || notmfr == null)
+                                                    && (c.Type == type || type == null)
+                                                    && (c.Type != nottype || nottype == null)
+                                                    && (c.Calories == calories || calories == null)
+                                                    && (c.Calories > caloriegreatthan || caloriegreatthan == null)
+                                                    && (c.Calories < caloriesmallerthan || caloriesmallerthan == null)
                                                     && (c.Protein == protein || protein == null)
+                                                    && (c.Protein > proteingreatethan || proteingreatethan == null)
+                                                    && (c.Protein < proteinlessthan || proteinlessthan == null)
                                                     && (c.Fat == fat || fat == null)
+                                                    && (c.Fat > fatgreaterthan || fatgreaterthan == null)
+                                                    && (c.Fat < fatlesserthan || fatlesserthan == null)
                                                     && (c.Sodium == sodium || sodium == null)
+                                                    && (c.Sodium > sodiumgreaterthan || sodiumgreaterthan == null)
+                                                    && (c.Sodium < sodiumlessthan || sodiumlessthan == null)
                                                     && (c.Fiber == fiber || fiber == null)
+                                                    && (c.Fiber > fibergreaterthan || fibergreaterthan == null)
+                                                    && (c.Fiber < fiberlessthan || fiberlessthan == null)
                                                     && (c.Carbo == carbo || carbo == null)
+                                                    && (c.Carbo > carbogreathan || carbogreathan == null)
+                                                    && (c.Carbo < carbolessthan || carbolessthan == null)
                                                     && (c.Sugars == sugar || sugar == null)
+                                                    && (c.Sugars > sugargreaterthan || sugargreaterthan == null)
+                                                    && (c.Sugars < sugarlessthan || sugarlessthan == null)
                                                     && (c.Potass == potass || potass == null)
+                                                    && (c.Potass > potassgreatherthan || potassgreatherthan == null)
+                                                    && (c.Potass < potaslessthan || potaslessthan == null)
                                                     && (c.Vitamins == vitamin || vitamin == null)
+                                                    && (c.Vitamins > vitamingreatthan || vitamingreatthan == null)
+                                                    && (c.Vitamins < vitaminlessthan || vitaminlessthan == null)
                                                     && (c.Shelf == shelf || shelf == null)
+                                                    && (c.Shelf > shelfgreathan || shelfgreathan == null)
+                                                    && (c.Shelf < shelflessthan || shelflessthan == null)
                                                     && (c.Weight == weight || weight == null)
-                                                    && (c.Cups == cups|| cups == null)
+                                                    && (c.Weight > weightgreatthan || weightgreatthan == null)
+                                                    && (c.Weight < weightlessthan || weightlessthan == null)
+                                                    && (c.Cups == cups || cups == null)
+                                                    && (c.Cups > cupsgreathan || cupsgreathan == null)
+                                                    && (c.Cups < cupslessthan || cupslessthan == null)
                                                     && (c.Rating == rating || rating == null)
+                                                    && (c.Rating > ratinggreathan || ratinggreathan == null)
+                                                    && (c.Rating < ratinglessthan || ratinglessthan == null)
 
-            );                                      
-
+            );
             return cereal;
         }
 
@@ -106,40 +126,35 @@ namespace Databasetest.Controllers
         // POST: PostRequestByparameter
         [Authorize]
         [HttpPost("PostRequestByparameter")]
-        public ActionResult<Cereal> CreateCereal([Bind("Name,Mfr,Type,Calories,Protein,Fat,Sodium,Fiber,Carbo,Sugars,Potass,Vitamins,Shelf,Weight,Cups,Rating")] Cereal cereal)
+        public ActionResult<Cereal> CreateCereal(Cereal cereal)
         {
-            if (cereal != null)
-            {
-                _context.Add(cereal);
-                _context.SaveChanges(); 
-                return cereal;
-            }
+            _context.Add(cereal);
+            _context.SaveChanges();
+            return cereal;
 
-            return NotFound("Please give input");
         }
 
         /// <summary>
         /// Update Cereal in database.
         /// </summary>
-        /// <returns>returns object if ok, else return error</returns> 
+        /// <returns>returns object if ok, else invalidt id</returns> 
         /// <response code="200">Returns Cereals, that has been Updated</response>
         /// <response code="404">If the input is empthy</response> 
         /// <response code="401">If that has not been created a JWT token</response> 
         // POST: UpdateRequestByparameter
         [Authorize]
         [HttpPost("UpdateRequestByparameter")] 
-         public ActionResult<Cereal> UpdateCereal([Bind("Id,Name,Mfr,Type,Calories,Protein,Fat,Sodium,Fiber,Carbo,Sugars,Potass,Vitamins,Shelf,Weight,Cups,Rating")] Cereal cereal)
-        {  
-           var output = (_context.Cereals?.Where(e => e.Id == cereal.Id));
-
-            if ( output != null)
+         public ActionResult<Cereal> UpdateCereal(Cereal cereal)
+        {
+            var cereals = _context.Cereals.Where(m => m.Id == cereal.Id).FirstOrDefault();
+            if (cereals == null)
             {
-                _context.Update(cereal);
-                _context.SaveChanges();
-                return cereal;
+                return NotFound("Id not found");
             }
 
-            return NotFound("Please give input, before updateing");
+            _context.Update(cereal);
+            _context.SaveChanges();
+            return cereal;
         }
 
         /// <summary>
@@ -154,24 +169,21 @@ namespace Databasetest.Controllers
         [HttpDelete("Delete")]
         public ActionResult<Cereal> DeleteCereal(int id)
         {
-              var cereals = _context.Cereals.Find(id);
-
+            var cereals = _context.Cereals.Where(m => m.Id == id).FirstOrDefault();
             if (cereals == null)
             {
-                return NotFound(" The Id is not exsisitng");
+                return NotFound("Id not found");
             }
-
             _context.Cereals.Remove(cereals);
             _context.SaveChanges();
-
-            return cereals;
+            return Ok(cereals);
         }
 
         /// <summary>
         /// CreateToken in database.
         /// </summary>
-        /// <returns>returns object if Delete is completed, else return error</returns>
-        // DELETE: Delete
+        /// <returns>Create token, if user and password are validt, else return error</returns>
+        // DELETE: POST
         [AllowAnonymous]
         [HttpPost]
         [Route("authenticate")]

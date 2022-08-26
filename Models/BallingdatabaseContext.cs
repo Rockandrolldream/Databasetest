@@ -33,30 +33,15 @@ namespace Databasetest.Models
             {
                 entity.ToTable("cereal");
 
-                entity.Property(e => e.Calories)
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .HasColumnName("calories");
+                entity.Property(e => e.Calories).HasColumnName("calories");
 
-                entity.Property(e => e.Carbo)
-                    .HasMaxLength(5)
-                    .IsUnicode(false)
-                    .HasColumnName("carbo");
+                entity.Property(e => e.Carbo).HasColumnName("carbo");
 
-                entity.Property(e => e.Cups)
-                    .HasMaxLength(5)
-                    .IsUnicode(false)
-                    .HasColumnName("cups");
+                entity.Property(e => e.Cups).HasColumnName("cups");
 
-                entity.Property(e => e.Fat)
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .HasColumnName("fat");
+                entity.Property(e => e.Fat).HasColumnName("fat");
 
-                entity.Property(e => e.Fiber)
-                    .HasMaxLength(5)
-                    .IsUnicode(false)
-                    .HasColumnName("fiber");
+                entity.Property(e => e.Fiber).HasColumnName("fiber");
 
                 entity.Property(e => e.Mfr)
                     .HasMaxLength(11)
@@ -68,53 +53,31 @@ namespace Databasetest.Models
                     .IsUnicode(false)
                     .HasColumnName("name");
 
-                entity.Property(e => e.Potass)
-                    .HasMaxLength(3)
+                entity.Property(e => e.Picture)
                     .IsUnicode(false)
-                    .HasColumnName("potass");
+                    .HasColumnName("picture");
 
-                entity.Property(e => e.Protein)
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .HasColumnName("protein");
+                entity.Property(e => e.Potass).HasColumnName("potass");
 
-                entity.Property(e => e.Rating)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("rating");
+                entity.Property(e => e.Protein).HasColumnName("protein");
 
-                entity.Property(e => e.Shelf)
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .HasColumnName("shelf");
+                entity.Property(e => e.Rating).HasColumnName("rating");
 
-                entity.Property(e => e.Sodium)
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .HasColumnName("sodium");
+                entity.Property(e => e.Shelf).HasColumnName("shelf");
 
-                entity.Property(e => e.Sugars)
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .HasColumnName("sugars");
+                entity.Property(e => e.Sodium).HasColumnName("sodium");
+
+                entity.Property(e => e.Sugars).HasColumnName("sugars");
 
                 entity.Property(e => e.Type)
                     .HasMaxLength(11)
                     .IsUnicode(false)
                     .HasColumnName("type");
 
-                entity.Property(e => e.Vitamins)
-                    .HasMaxLength(3)
-                    .IsUnicode(false)
-                    .HasColumnName("vitamins");
+                entity.Property(e => e.Vitamins).HasColumnName("vitamins");
 
-                entity.Property(e => e.Weight)
-                    .HasMaxLength(5)
-                    .IsUnicode(false)
-                    .HasColumnName("weight");
+                entity.Property(e => e.Weight).HasColumnName("weight");
             });
-
-           
 
             OnModelCreatingPartial(modelBuilder);
         }

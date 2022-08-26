@@ -18,7 +18,7 @@
             <response code="200">Returns Cereal</response>
             <response code="404">If the item is not found</response> 
         </member>
-        <member name="M:Databasetest.Controllers.CerealsController.GetCerealByparameter(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:Databasetest.Controllers.CerealsController.GetCerealByparameter(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             GetCereal by Parameters.
             </summary>
@@ -37,7 +37,7 @@
             <summary>
             Update Cereal in database.
             </summary>
-            <returns>returns object if ok, else return error</returns> 
+            <returns>returns object if ok, else invalidt id</returns> 
             <response code="200">Returns Cereals, that has been Updated</response>
             <response code="404">If the input is empthy</response> 
             <response code="401">If that has not been created a JWT token</response> 
@@ -55,7 +55,7 @@
             <summary>
             CreateToken in database.
             </summary>
-            <returns>returns object if Delete is completed, else return error</returns>
+            <returns>Create token, if user and password are validt, else return error</returns>
         </member>
     </members>
 </doc>

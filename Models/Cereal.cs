@@ -9,18 +9,24 @@ namespace Databasetest.Models
         public string? Name { get; set; }
         public string? Mfr { get; set; }
         public string? Type { get; set; }
-        public string? Calories { get; set; }
-        public string? Protein { get; set; }
-        public string? Fat { get; set; }
-        public string? Sodium { get; set; }
-        public string? Fiber { get; set; }
-        public string? Carbo { get; set; }
-        public string? Sugars { get; set; }
-        public string? Potass { get; set; }
-        public string? Vitamins { get; set; }
-        public string? Shelf { get; set; }
-        public string? Weight { get; set; }
-        public string? Cups { get; set; }
-        public string? Rating { get; set; }
+        public int? Calories { get; set; }
+        public int? Protein { get; set; }
+        public int? Fat { get; set; }
+        public int? Sodium { get; set; }
+        public double? Fiber { get; set; }
+        public double? Carbo { get; set; }
+        public int? Sugars { get; set; }
+        public int? Potass { get; set; }
+        public int? Vitamins { get; set; }
+        public int? Shelf { get; set; }
+        public double? Weight { get; set; }
+        public double? Cups { get; set; }
+        public int? Rating { get; set; }
+        public string? Picture { get; set; }
+    }
+
+    public enum inputtooget
+    {
+  
     }
 }
